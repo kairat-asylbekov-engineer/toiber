@@ -26,6 +26,13 @@ const config: Config = {
           "Roboto",
           "sans-serif",
         ],
+        serif: [
+          "Playfair Display",
+          "Georgia",
+          "Cambria",
+          "Times New Roman",
+          "serif",
+        ],
       },
       maxWidth: {
         landing: "1200px",

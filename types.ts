@@ -1,29 +1,34 @@
-interface EventData {
-    eventDate: string; // Timestamp with time
-    location: string;
-    guests: Guest[]
-    photos: Photo[];
-    photosByGuests: Photo[];
-    type: EventType;
+export interface InvitationData {
+  groomName: string;
+  brideName: string;
+  eventDate: string;
+  eventTime: string;
+  location: string;
+  locationUrl: string;
+  description: string;
+  galleryImages: string[];
+  giftInfo: string;
+  heroImageUrl: string;
+  dresscode?: string;
+  schedule?: { time: string; title: string }[];
 }
 
-interface Guest {
-    id: string;
-    name: string;
-    phone: string;
-    visitResponse: VisitResponse;
+export interface Invitation {
+  id: string;
+  user_id: string;
+  slug: string;
+  template_id: string;
+  data: InvitationData;
+  status: "draft" | "published";
+  created_at: string;
+  updated_at: string;
 }
 
-interface VisitResponse {
-    id: string;
-    guestId: string; // Guest ID
-    response: "confirmed" | "declined" | "maybe";
-    message: string;
+export interface RSVP {
+  id: string;
+  invitation_id: string;
+  name: string;
+  status: "yes" | "no";
+  comment: string | null;
+  created_at: string;
 }
-
-interface Photo {
-    id: string;
-    url: string;
-}
-
-type EventType = "wedding" | "birthday" | "anniversary" | "kyz-uzatuu";
